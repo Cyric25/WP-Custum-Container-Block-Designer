@@ -1,0 +1,99 @@
+{
+  "name": "container-block-designer",
+  "version": "1.0.0",
+  "description": "Ein visueller Designer für custom Container-Blöcke im Gutenberg Editor",
+  "author": "Ihr Name",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "gutenberg",
+    "blocks",
+    "container"
+  ],
+  "homepage": "https://example.com/container-block-designer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourname/container-block-designer.git"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "build:production": "npm run clean && npm run build -- --mode production && npm run bundle",
+    "clean": "rm -rf build dist",
+    "bundle": "npm run create-zip",
+    "create-zip": "node scripts/create-zip.js",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "lint:md:docs": "wp-scripts lint-md-docs",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "lint:php": "composer run-script phpcs",
+    "lint": "npm run lint:css && npm run lint:js && npm run lint:php",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "test:unit": "wp-scripts test-unit-js",
+    "test:e2e": "wp-scripts test-e2e",
+    "test:php": "composer run-script phpunit",
+    "test": "npm run test:unit && npm run test:php",
+    "env:start": "wp-env start",
+    "env:stop": "wp-env stop",
+    "env:reset": "wp-env clean all && wp-env start"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/wordpress__block-editor": "^11.5.0",
+    "@types/wordpress__blocks": "^12.5.0",
+    "@types/wordpress__components": "^23.0.0",
+    "@types/wordpress__compose": "^6.0.0",
+    "@types/wordpress__data": "^9.0.0",
+    "@types/wordpress__element": "^5.5.0",
+    "@types/wordpress__i18n": "^4.5.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@wordpress/env": "^9.0.0",
+    "@wordpress/scripts": "^27.0.0",
+    "archiver": "^6.0.0",
+    "classnames": "^2.3.2",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@wordpress/api-fetch": "^6.44.0",
+    "@wordpress/block-editor": "^12.15.0",
+    "@wordpress/blocks": "^12.24.0",
+    "@wordpress/components": "^25.13.0",
+    "@wordpress/compose": "^6.24.0",
+    "@wordpress/data": "^9.17.0",
+    "@wordpress/element": "^5.24.0",
+    "@wordpress/hooks": "^3.47.0",
+    "@wordpress/i18n": "^4.47.0",
+    "@wordpress/icons": "^9.38.0",
+    "@wordpress/notices": "^4.15.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "browserslist": [
+    "extends @wordpress/browserslist-config"
+  ],
+  "wp-env": {
+    "phpVersion": "8.0",
+    "plugins": [
+      "."
+    ],
+    "config": {
+      "WP_DEBUG": true,
+      "WP_DEBUG_LOG": true,
+      "WP_DEBUG_DISPLAY": false,
+      "SCRIPT_DEBUG": true
+    }
+  }
+}

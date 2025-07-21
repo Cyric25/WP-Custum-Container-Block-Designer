@@ -1,0 +1,51 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "ESNext",
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "jsx": "react",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "allowSyntheticDefaultImports": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "@components/*": ["src/components/*"],
+            "@utils/*": ["src/utils/*"],
+            "@blocks/*": ["src/blocks/*"],
+            "@admin/*": ["src/admin/*"],
+            "@types/*": ["src/types/*"]
+        },
+        "types": [
+            "@types/react",
+            "@types/react-dom",
+            "@types/wordpress__blocks",
+            "@types/wordpress__block-editor",
+            "@types/wordpress__components",
+            "@types/wordpress__compose",
+            "@types/wordpress__data",
+            "@types/wordpress__element",
+            "@types/wordpress__i18n"
+        ]
+    },
+    "include": [
+        "src/**/*",
+        "types/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "build",
+        "dist",
+        "vendor"
+    ]
+}
