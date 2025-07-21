@@ -1,0 +1,273 @@
+/**
+ * Container Block Designer - Admin Styles
+ */
+
+// Variables
+$primary-color: #007cba;
+$primary-hover: #005a87;
+$border-color: #ddd;
+$background-light: #f8f9fa;
+$text-color: #1e1e1e;
+$text-muted: #666;
+$success-color: #00a32a;
+$error-color: #d63638;
+$warning-color: #dba617;
+
+// Mixins
+@mixin card-style {
+    background: #fff;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+    
+    &:hover {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+}
+
+// Admin App Container
+.cbd-admin-app {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+// Loading State
+.cbd-admin-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    
+    .components-spinner {
+        margin-bottom: 20px;
+    }
+    
+    p {
+        color: $text-muted;
+        font-size: 16px;
+    }
+}
+
+// Admin Content
+.cbd-admin-content {
+    display: grid;
+    gap: 30px;
+}
+
+// Block List
+.cbd-block-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    
+    &-item {
+        @include card-style;
+        padding: 20px;
+        position: relative;
+        
+        &-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            
+            .dashicons {
+                font-size: 24px;
+                margin-right: 10px;
+                color: $primary-color;
+            }
+            
+            h3 {
+                margin: 0;
+                font-size: 18px;
+                font-weight: 600;
+                color: $text-color;
+            }
+        }
+        
+        &-description {
+            color: $text-muted;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        &-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: $text-muted;
+            
+            .status {
+                display: inline-block;
+                padding: 3px 8px;
+                border-radius: 3px;
+                font-weight: 500;
+                
+                &.status-active {
+                    background: #e6f5e8;
+                    color: $success-color;
+                }
+                
+                &.status-draft {
+                    background: #fef6e6;
+                    color: $warning-color;
+                }
+                
+                &.status-inactive {
+                    background: #f0f0f0;
+                    color: $text-muted;
+                }
+            }
+        }
+        
+        &-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            
+            .components-button {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+// Block Filters
+.cbd-block-filters {
+    @include card-style;
+    padding: 20px;
+    
+    &-row {
+        display: grid;
+        grid-template-columns: 1fr 200px 200px auto;
+        gap: 15px;
+        align-items: end;
+        
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+// Block Designer
+.cbd-block-designer {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 30px;
+    height: calc(100vh - 200px);
+    
+    @media (max-width: 1200px) {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    &-main {
+        @include card-style;
+        padding: 30px;
+        overflow-y: auto;
+    }
+    
+    &-preview {
+        @include card-style;
+        padding: 30px;
+        
+        h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        &-container {
+            border: 1px dashed $border-color;
+            border-radius: 4px;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: $text-muted;
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+// Spacing Control
+.cbd-spacing-control {
+    margin-bottom: 25px;
+    
+    h4 {
+        margin-bottom: 15px;
+        font-size: 14px;
+        font-weight: 600;
+        color: $text-color;
+    }
+    
+    .cbd-spacing-inputs {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        
+        .cbd-spacing-input {
+            display: flex;
+            flex-direction: column;
+            
+            label {
+                font-size: 11px;
+                text-transform: uppercase;
+                color: $text-muted;
+                margin-bottom: 5px;
+                font-weight: 500;
+            }
+            
+            input {
+                padding: 8px;
+                border: 1px solid $border-color;
+                border-radius: 4px;
+                font-size: 14px;
+                text-align: center;
+                
+                &:focus {
+                    border-color: $primary-color;
+                    outline: none;
+                    box-shadow: 0 0 0 1px $primary-color;
+                }
+            }
+        }
+    }
+}
+
+// Notices
+.cbd-admin-app {
+    .components-notice {
+        margin-bottom: 20px;
+        
+        &.is-success {
+            border-left-color: $success-color;
+        }
+        
+        &.is-error {
+            border-left-color: $error-color;
+        }
+        
+        &.is-warning {
+            border-left-color: $warning-color;
+        }
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .cbd-admin-app {
+        padding: 10px;
+    }
+    
+    .cbd-block-list {
+        grid-template-columns: 1fr;
+    }
+}

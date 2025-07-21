@@ -1,0 +1,164 @@
+/**
+ * Container Block Frontend & Editor Styles
+ */
+
+// Variables
+$placeholder-bg: #f0f0f0;
+$placeholder-border: #ddd;
+$placeholder-text: #666;
+
+// Container Base Styles
+.cbd-container {
+    position: relative;
+    box-sizing: border-box;
+    
+    // Ensure proper width handling
+    width: 100%;
+    
+    // Default transition for smooth changes
+    transition: all 0.3s ease;
+    
+    // Clear floats
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    // Full width variant
+    &.alignfull {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        max-width: none;
+    }
+    
+    // Wide alignment
+    &.alignwide {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    // Nested containers spacing
+    .cbd-container {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    
+    // Inner blocks default spacing
+    > * + * {
+        margin-top: var(--cbd-block-gap, 1.5rem);
+    }
+}
+
+// Placeholder Styles (Editor only)
+.cbd-placeholder {
+    padding: 60px 20px;
+    background-color: $placeholder-bg;
+    border: 2px dashed $placeholder-border;
+    text-align: center;
+    border-radius: 4px;
+    
+    &-icon {
+        margin-bottom: 20px;
+        
+        .dashicons {
+            font-size: 48px;
+            color: $placeholder-text;
+        }
+    }
+    
+    &-text {
+        margin: 0;
+        color: $placeholder-text;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+// Loading State
+.cbd-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    min-height: 200px;
+    
+    .components-spinner {
+        margin-bottom: 10px;
+    }
+    
+    p {
+        margin: 0;
+        color: $placeholder-text;
+    }
+}
+
+// Responsive styles
+@media (max-width: 1024px) {
+    .cbd-container {
+        // Tablet-specific styles can be added here
+    }
+}
+
+@media (max-width: 600px) {
+    .cbd-container {
+        // Mobile-specific styles
+        &.alignfull {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}
+
+// Animation classes (if animations are enabled)
+.cbd-animate {
+    &-fadeIn {
+        animation: cbdFadeIn 0.5s ease-out;
+    }
+    
+    &-slideIn {
+        animation: cbdSlideIn 0.5s ease-out;
+    }
+    
+    &-zoomIn {
+        animation: cbdZoomIn 0.5s ease-out;
+    }
+}
+
+// Keyframes
+@keyframes cbdFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cbdSlideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes cbdZoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

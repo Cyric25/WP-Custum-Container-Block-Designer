@@ -1,0 +1,127 @@
+/**
+ * Container Block Designer - Frontend Styles
+ * These styles are loaded on the frontend when CBD blocks are present
+ */
+
+/* Container Base Styles */
+.cbd-container {
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Ensure proper content width */
+.cbd-container > * {
+    max-width: 100%;
+}
+
+/* Clearfix for floated content */
+.cbd-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Full Width Container */
+.cbd-container.alignfull {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: none;
+}
+
+/* Wide Container */
+.cbd-container.alignwide {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Container Spacing Reset for Nested Containers */
+.cbd-container .cbd-container {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Responsive Images within Containers */
+.cbd-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Animation Classes */
+.cbd-animate-fadeIn {
+    animation: cbdFadeIn 0.5s ease-out;
+}
+
+.cbd-animate-slideIn {
+    animation: cbdSlideIn 0.5s ease-out;
+}
+
+.cbd-animate-zoomIn {
+    animation: cbdZoomIn 0.5s ease-out;
+}
+
+/* Keyframes */
+@keyframes cbdFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cbdSlideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes cbdZoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    /* Tablet Styles */
+    .cbd-container.alignwide {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Mobile Styles */
+    .cbd-container.alignfull {
+        /* Add some padding on mobile for better readability */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .cbd-container.alignwide {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .cbd-container {
+        break-inside: avoid;
+    }
+}

@@ -1,0 +1,104 @@
+/**
+ * Container Block Editor-specific Styles
+ */
+
+// Editor wrapper
+.block-editor-block-list__block {
+    &.cbd-container {
+        // Visual indication in editor
+        &.is-selected {
+            outline: 1px dashed #007cba;
+            outline-offset: 2px;
+        }
+        
+        // Hover state
+        &:hover:not(.is-selected) {
+            outline: 1px dashed #ddd;
+            outline-offset: 2px;
+        }
+    }
+}
+
+// Editor-specific container styles
+.editor-styles-wrapper {
+    .cbd-container {
+        // Ensure proper spacing in editor
+        margin-top: 0;
+        margin-bottom: 0;
+        
+        // Editor inner blocks wrapper
+        .block-editor-inner-blocks {
+            // Remove default margins
+            > .block-editor-block-list__layout {
+                > * {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+                
+                > * + * {
+                    margin-top: var(--cbd-block-gap, 1.5rem);
+                }
+            }
+        }
+        
+        // Empty state
+        &:not(.has-child-blocks) {
+            .block-editor-inner-blocks {
+                min-height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+    
+    // Full width in editor
+    .cbd-container.alignfull {
+        // Reset the negative margins in editor
+        margin-left: 0;
+        margin-right: 0;
+        left: auto;
+        right: auto;
+        width: 100%;
+    }
+}
+
+// Block appender button styling
+.cbd-container {
+    .block-list-appender {
+        margin-top: var(--cbd-block-gap, 1.5rem);
+        
+        .block-editor-button-block-appender {
+            background: #f0f0f0;
+            border: 1px dashed #ccc;
+            color: #1e1e1e;
+            padding: 12px;
+            width: 100%;
+            
+            &:hover {
+                background: #e0e0e0;
+                border-color: #999;
+            }
+            
+            &:focus {
+                box-shadow: 0 0 0 2px #007cba;
+            }
+        }
+    }
+}
+
+// Inspector controls custom styling
+.components-panel__body {
+    .cbd-block-info {
+        ul {
+            margin: 0.5em 0 1em 1.5em;
+            padding: 0;
+            
+            li {
+                margin: 0.25em 0;
+                font-size: 13px;
+                color: #555;
+            }
+        }
+    }
+}

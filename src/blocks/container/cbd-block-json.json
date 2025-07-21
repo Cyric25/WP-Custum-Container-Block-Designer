@@ -1,0 +1,52 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "container-block-designer/container",
+    "version": "1.0.0",
+    "title": "Container Block",
+    "category": "container-blocks",
+    "icon": "layout",
+    "description": "Ein anpassbarer Container-Block für Ihre Inhalte.",
+    "keywords": ["container", "layout", "wrapper", "section"],
+    "textdomain": "container-block-designer",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "customClassName": true,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true,
+            "padding": true,
+            "blockGap": true
+        },
+        "color": {
+            "background": true,
+            "text": false,
+            "link": false
+        },
+        "__experimentalBorder": {
+            "color": true,
+            "radius": true,
+            "style": true,
+            "width": true
+        }
+    },
+    "attributes": {
+        "blockId": {
+            "type": "string",
+            "default": ""
+        },
+        "customClasses": {
+            "type": "string",
+            "default": ""
+        },
+        "fullWidth": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css",
+    "render": "file:./render.php"
+}
